@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Recognition in Python</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <div class="speechContainer">
+        <h1>Upload New File</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <br>
+            <input type="submit" value="Transcribe" />
+        </form>
+
+        {% if transcript != "" %}
+        <div class="speechTranscript">
+            <h1>Transcript</h1>
+            <p class="speechText">{{ transcript }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
