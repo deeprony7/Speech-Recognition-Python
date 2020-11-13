@@ -6,24 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech Recognition in Python</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="speechContainer">
-        <h1>Upload New File</h1>
-        <form action="" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" />
+    <div class="wrapper">
+        <div class="speechContainer">
+            <h1 class="text-center">Speech Transcriber</h1>
             <br>
-            <input type="submit" value="Transcribe" />
-        </form>
-
-        {% if transcript != "" %}
-        <div class="speechTranscript">
-            <h1>Transcript</h1>
-            <p class="speechText">{{ transcript }}</p>
+            <h2>Upload a .wav audio file</h2>
+            <form class="text-center" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <br><br>
+                <input class="bg-primary" type="submit" value="Click To Transcribe" />
+                <br><br>
+            </form>
+            <hr>
+            <br>
+            {% if transcript != "" %}
+            <div class="speechTranscript">
+                <h2>Transcript</h2>
+                <p class="speechText">{{ transcript }}</p>
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
     </div>
+
 </body>
 
 </html>
